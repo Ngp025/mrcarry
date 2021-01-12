@@ -1,0 +1,50 @@
+// --------------------------------------- Opacity -------------------------------------------------
+
+.animatedO {
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.opacity {
+  -webkit-animation-name: opacity;
+  animation-name: opacity;
+}
+
+// Return Button Animation
+
+.delay {
+  animation-delay: 0.5s;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes opacity-return-button {
+  0% {
+    opacity: 0;
+    transform: rotate(270deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(270deg);
+  }
+}
+
+.opacity-return-button {
+  -webkit-animation-name: opacity-return-button;
+  animation-name: opacity-return-button;
+}
