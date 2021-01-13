@@ -72,6 +72,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 // - - - - USSERS
 app.use('/users', require('../backend/routes/users.routes'));
+app.use('/product', require('../backend/routes/products.routes'));
 
 // Starting server
 const server = app.listen(app.get('port'), () => {

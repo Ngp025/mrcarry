@@ -22,8 +22,8 @@ class Home extends Component {
     this.state = {
       navigation: "home",
       navBar: "expanded",
+      productsList: [],
       personalize : {
-        mcList: [],
         mainColor : {
           red: 155,
           green: 155,
@@ -178,7 +178,7 @@ class Home extends Component {
     }
   }
   footerBar(){
-    return(<div id="footer-bar" style={{display: `${this.state.navigation === "home" ? "none" : ""}`}}>Contacto: mision.hiphop.artistas@gmail.com</div>)
+    return(<div id="footer-bar" style={{display: `${this.state.navigation === "home" ? "none" : ""}`}}>Contacto: mrcarry451025@gmail.com</div>)
   }
   navigationSwitch(){
     switch(this.state.navigation){
@@ -186,16 +186,17 @@ class Home extends Component {
         return (
             <div id="home" className="content-align">
               <div id="help-content" className="help-content">
-                <label id="help-label" className="help-label">Click para comenzar</label>
+                {/*<label id="help-label" className="help-label">Click para comenzar</label>*/}
               </div>
-              {/* <img 
-                  src="https://res.cloudinary.com/drgv8takd/image/upload/v1602526434/Mision%20Hip%20Hop/Logos/MISION_HH_-_MIEL_3_pdmxor.png"
+               <img 
+                  src="https://media.discordapp.net/attachments/689942074425999446/798962305718550538/carry.fw.png"
                   id="main-logo" 
                   className="main-logo animatedO opacity" 
                   onClick={()=>{
                     this.navigationHandler("land");
-                  }}/>  */}
-              <h4 id="main-subtitle" className="main-subtitle opacityMainSubTitle animatedMainSubTitle">COMPETENCIAS DE FREESTYLE ONLINE</h4>
+                  }}/>
+              {/*<h4 id="main-subtitle" className="main-subtitle animatedO opacity">MR.CARRY</h4> */}
+              <label id="info-text" className="info-text animatedOD opacity-d" >CONSIGUE LA DIVISIÓN QUE MERECES</label>
             </div>
         );
         break
@@ -209,10 +210,12 @@ class Home extends Component {
               INICIO
             </label>
             <div id="land-data" className="land-data-box animatedO opacity">
-            <label id="mcList-help" className="mcList-help">Revisa un listado con los MCs sus videos de presentación y sus redes</label>
-              <button id="mc-list" className="mc-list " onClick={()=>{this.navigationHandler("mcList"); setTimeout(()=>this.setState({navBar : "colapsed"}), 500)}}>LISTA DE MC</button>
-              <label id="enroll-help" className="enroll-help">Completa el formulario para enviar tu presentación</label>
-              <button id="enroll" className="enroll " onClick={()=>{this.navigationHandler("pre-enroll"); setTimeout(()=>this.setState({navBar : "colapsed"}), 500)}}>INSCRIBIRSE</button>
+            <label id="mcList-help" className="mcList-help">Revisa un listado con las ofertas de cada paquete </label>
+              <button id="mc-list" className="mc-list " onClick={()=>{this.navigationHandler("mcList"); setTimeout(()=>this.setState({navBar : "colapsed"}), 500)}}>OFERTAS</button>
+              <label id="enroll-help" className="enroll-help">Genera un cálculo personalizado de acuerdo a tus ligas y tus campeones</label>
+              <button id="enroll" className="enroll " onClick={()=>{this.navigationHandler("pre-enroll"); setTimeout(()=>this.setState({navBar : "colapsed"}), 500)}}>CALCULADORA</button>
+              <label id="enroll-help" className="enroll-help">Completa el formulario para realizar tu pedido</label>
+              <button id="enroll" className="enroll " onClick={()=>{this.navigationHandler("pre-enroll"); setTimeout(()=>this.setState({navBar : "colapsed"}), 500)}}>HACER PEDIDO</button>
             </div>
         </div>
       )
@@ -299,49 +302,17 @@ class Home extends Component {
           <label 
             id='land-title'
             className='text-title'
-            >CANDIDATOS</label>
+            >PAQUETES</label>
           <div id="mcList-box" className="mcList-box">
-            {console.log(this.state.mcList)}
-            {this.state.mcList ? this.state.mcList.map((mc, index)=>{
+            {console.log(this.state.productsList)}
+            {this.state.productsList ? this.state.productsList.map((product, index)=>{
               return( 
               <div id={`mc-${index}`} key={`${index}`} className="mc-card">
-                <div id={`card-header-${index}`} className="card-header" key={`header-${index}`}>
-                  {/*<label id={`mc-index-${index}`} key={`index-${index}`} className="mc-index">{`${index} - `}</label> */}
-                  <div id={`user-data-box-${index}`} className="user-data-box" key={`data-box-${index}`}>
-                  <label id={`mc-name-label-MC${index}`} key={`name-label-MC${index}`} className="mc-name-label-MC">
-                    MC:
-                    </label>
-                  <label id={`mc-name-label-${index}`} key={`name-label-${index}`} className="mc-name-label">
-                    {mc.mcName}
-                    </label>
-                    </div>
-                  </div>
-                <div id={`card-footer-${index}`} className="card-footer" key={`footer-${index}`}>
-                <div id={`user-footer-box-${index}`} className="user-footer-box" key={`footer-box-${index}`}>
-                  <img 
-                    id={`mc-link-${index}`}
-                    key={`link-${index}`}
-                    className="mc-link"
-                    src="https://res.cloudinary.com/drgv8takd/image/upload/v1605716281/Mision%20Hip%20Hop/Assets/Mc%20List%20assets/YouTube-logo-play-icon1-e1455723974137_nfigyp.png"
-                    onClick={(e)=> {this.viewsHandler(mc, e)} }/>
-                    <div id={`mc-space-${index}`} key={`space-${index}`} className="mc-space"></div>
-                  <img 
-                    id={`mc-social-${index}`}
-                    key={`social-${index}`}
-                    className="mc-social"
-                    src="https://res.cloudinary.com/drgv8takd/image/upload/v1605715446/Mision%20Hip%20Hop/Assets/Mc%20List%20assets/ig-logo-email_ja9bes.png"
-                    onClick={ (e)=> this.viewsHandler(mc, e) }/>
-                </div>
-                <div id="mc-views-div" className="mc-views-div">
-                    <img 
-                      id={`mc-views-${index}`}
-                      key={`mc-views-${index}`}
-                      className="mc-views"
-                      src="https://res.cloudinary.com/drgv8takd/image/upload/v1603245386/Mision%20Hip%20Hop/Assets/Mc%20List%20assets/white-eye-icon-4_j0pgn0.png"
-                      />
-                    <label id={`views-${index}-id`} key={`views-${index}`} className="views">{`${mc.views}`}</label>
-                  </div>
-                </div>
+                <img id="card-bg" className="card-bg" src={`${product.image}`} />
+                <label id="card-title" className="card-title" key={`card-title-${index}`}>{product.name.toUpperCase()}</label>
+                <label id="product-desc" className="product-desc" key={`product-desc-${index}`}>{product.description.toUpperCase()}</label>
+                <label id="product-price" className="product-price" key={`product-price-${index}`}>{`U$S ${product.price}`} </label>
+                <button id="get-product" className="get-product" key={`get-product-${index}`}>OBTENER</button>
               </div>)
               }) : <img
                      id='loading-img-mcList'
@@ -386,16 +357,12 @@ class Home extends Component {
       
   }
   async loadMcList(){
-    await fetch('users/mclist/')
+    await fetch('product/getProduct/')
       .then((res) =>res.json())
       .then((json) => {
-        var mcList = json;
-        var orderMcList = [];
-        for(var i = mcList.length-1 ; i >= 0 ; i--){
-          orderMcList.push(mcList[i]) ;
-        }
-        console.log(orderMcList)
-        this.setState({mcList : orderMcList})
+        var productsList = json;
+        this.setState({productsList : productsList}) 
+        console.log(productsList)
     });
     }
   // User info setter
@@ -421,10 +388,12 @@ class Home extends Component {
   render() {
     return(
       <div id="render-div">
+        <div id="main-bg" className="main-bg" style={{opacity: this.state.navigation === "mcList" ? 0.05 : 0.3 }}>        </div>
+
         <div id="header" className={`header h-${this.state.navBar}`} style={{display:`${this.state.navigation === "home" ? "none" : "block"}`}}>
           <div id="navigation-bar" className="navigation-bar">
             <img id="return-button" className="return-button delay opacity-return-button" style={{display: `${this.state.navBar === "expanded" ? "none" : "block"}`}} onClick={()=>this.navReturnHandler()} src="https://res.cloudinary.com/drgv8takd/image/upload/a_270/v1603087706/Mision%20Hip%20Hop/Assets/Nav%20assets/25366_m3kjuv.svg"/>
-            <img id="title-img-nav" className={`${this.state.navBar}`} src="https://res.cloudinary.com/drgv8takd/image/upload/v1602536269/Mision%20Hip%20Hop/Logos/MISION_HH_-_logo_-_white_znaiz4.png" />
+            <img id="title-img-nav" className={`${this.state.navBar}`} src="https://cdn.discordapp.com/attachments/689942074425999446/798998300912517201/carry3.fw.png" />
           </div>
           {/*<img id="title-img" className="title-img" src="https://res.cloudinary.com/drgv8takd/image/upload/v1602536269/Mision%20Hip%20Hop/Logos/MISION_HH_-_logo_-_white_znaiz4.png" /> */}
         </div>        

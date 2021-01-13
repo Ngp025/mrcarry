@@ -3,7 +3,7 @@
 // Classic Template
 $classicFont: '$classicFont', sans-serif;
 $classicColor: #fb2062;
-$sub-title: rgb(252, 243, 119);
+$sub-title: rgb(238, 228, 89);
 $background-color: #323346;
 $marginAutoWidth: 0 auto;
 $viewIndex0: 0;
@@ -133,12 +133,13 @@ html{
   }
   min-height: 100%;
   background:
-  linear-gradient(336deg, rgb(44, 39, 11), rgba(240, 213, 81, 0.3) 70.71%),
-  linear-gradient(127deg, rgb(65, 58, 21), rgba(240, 213, 81,0.3) 70.71%),
-  linear-gradient(217deg, rgb(49, 47, 37), rgba(240, 213, 81,0.3) 70.71%);
+  linear-gradient(336deg, rgba(148, 126, 44,0.3), rgba(148, 126, 44, 0.3) 70.71%),
+  linear-gradient(127deg, rgba(120, 106, 40, 1), rgba(148, 126, 44,0.3) 70.71%),
+  linear-gradient(217deg, rgb(88, 66, 22), rgba(132, 116, 44, 1) 70.71%);
+  background-repeat: no-repeat;
 }
 $body-min-height: 480px;
-$expanded-body: 75vh;
+$expanded-body: 79vh;
 $colapsed-body: 83vh;
 body{
   display: block !important;
@@ -175,6 +176,16 @@ input{
     display: inline-block;
     width: inherit;
     height: inherit;
+    .main-bg{
+      position: absolute;
+      opacity: 0.3;
+      z-index: -100;
+      height: 100%;
+      width: 100%;
+      background-image: url("https://images2.alphacoders.com/556/thumb-1920-556396.jpg");
+      background-position: -195% 5%;
+      transform: scale(1);
+    }
     // Home Content
       // Header
       .h-colapsed{
@@ -182,7 +193,7 @@ input{
         min-height: 38.4px;
       }
       .h-expanded{
-        height: 16vh;
+        height: 12vh;
         min-height: 76.8px;
       }
       .header{
@@ -236,16 +247,17 @@ input{
     $center-comps-heigth: $colapsed-body;
     $center-comps-min-heigth: 394.4px;
     .content-align{ //HOME
-      position: relative;
+      //position: relative;
       margin: 0 auto;
       min-height: inherit;
       width: 50vw;
       margin-left: 25vw;
       height: inherit;
       .main-logo{
-        position: relative;
+        position: absolute;
+        left: 0;
         font-size: 44px;
-        width: 50vw;
+        width: 100vw;
       }
       .main-subtitle{
         width: 50vw;
@@ -258,6 +270,7 @@ input{
       .help-content{
         width: 100%;
         height: 64px;
+        padding-top: 75px;
         margin: 0 auto;
         .help-label{
           position: relative;
@@ -270,6 +283,16 @@ input{
           font-weight: 300;
           color: aliceblue;
         }
+      }
+      .info-text{
+        display: none;
+        width: 50vw;
+        margin: 0 auto;
+        margin-top: 75px !important;
+        font-size: 18px;
+        font-weight: 100;
+        font-family: $classicFont;
+        color: whitesmoke;
       }
     }
     // Land 2 content
@@ -364,150 +387,76 @@ input{
           margin-left: 20%;
         }
         .mc-card{
-          $card-background: rgba(236, 236, 226, 0.95);
+          position: relative !important;
+          $card-background: $background-color;
           $card-borderRadius: 2px;
           $card-box-width: 90px;
+          background-color: $card-background;
           display: inline-block;
-          width: 47.5%;
+          width: inherit;
+          height: 175px;
           margin-top: 7.5px;
           margin-bottom: 7.5px;
-          background-color: $card-background;
+          border-top: 2px solid $sub-title;
+          border-bottom: 2px solid $sub-title;
           &:nth-child(even){
-            margin-left: 5%;
+            //margin-left: 5%;
           }
-          .card-header{
-            position: relative;
-            display: block;
-            height: 50px;
-            width: 100%;
-            background-color: transparent;
-            border-radius: $card-borderRadius;
-            border-bottom-left-radius: 0px;
-            border-bottom-right-radius: 0px;
-            //border: 1px solid $sub-title;
-            .mc-index{
-              color: $sub-title;
-              font-family: $classicFont;
-              font-size: 14px;
-              font-weight: 900;
-              font-stretch: normal;
-              font-style: normal;
-            }
-            .mc-img{
-              display: none;
-              position: absolute;
-              left: 5%;
-              top : 0px;
-              width: 45px;
-              height: 60px;
-              margin-top: 5px;
-              margin-bottom: 5px;
-              background-color: white;
-            }
-            .user-data-box{
-              width: $card-box-width;
-              margin: 0 auto;
-              text-align: left;
-              .mc-name-label-MC{
-                display: inline-block;
-                color: rgba(50, 51, 70, 0.5);
-                font-family: $classicFont;
-                height: 20px;
-                width: $card-box-width;
-                text-align: left;
-                line-height: 20px;
-                font-size: 10px;
-                font-weight: 900;
-                font-stretch: normal;
-                font-style: normal;
-              }
-              .mc-name-label{
-                display: inline-block;
-                color: $background-color;
-                font-family: $classicFont;
-                height: 30px;
-                width: $card-box-width;
-                text-align: left;
-                line-height: 30px;
-                font-size: 17px;
-                font-weight: 900;
-                font-stretch: normal;
-                font-style: normal;
-              }
-            }
+          .card-bg{
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            opacity: 0.35;
           }
-          .card-footer{
-            display: inline-block;
-            height: auto;
-            width: 100%;
-            margin-bottom: 0px;
-            text-align: left;
-            background-color: transparent;
-            border-radius: $card-borderRadius;
-            border-top-left-radius: 0px;
-            border-top-right-radius: 0px;
-            .user-footer-box{
-              margin: 0 auto;
-              margin-top: 5px;
-              //background-color: white;
-              height: 100%;
-              width: $card-box-width;
-              border-bottom: 1px solid rgba(50, 51, 70, 0.5);
-              .mc-link{
-                display: inline-block;
-                margin-bottom: 5px;
-                //margin-right: 6.5px;
-                //margin-left: -8.5px;
-                width: 29px;
-                height: 29px;
-                object-fit: cover;
-              }
-              .mc-space{
-                display: inline-block;
-                height: 80%;
-                margin-top: 5%;
-                opacity: 0.2;
-                background-color: $sub-title;
-                width: 1px;
-                margin-left: 10px;
-                margin-right: 10px;
-              }
-              .mc-social{
-                float: right;
-                margin-bottom: 5px;
-                width: 29px;
-                height: 29px;
-              }
-            }
-            .mc-views-div{
-              position: relative;
-              margin: 0 auto;
-              margin-top: 5px;
-              //background-color: white;
-              height: 25px;
-              width: $card-box-width;
-              text-align: center;
-              .mc-views{
-                position: absolute;
-                display: inline-block;
-                width: 15px;
-                height: 15px;
-                left: 7.5px;
-                top: 2px;
-                object-fit: cover;
-              }
-              .views{
-                font-family: $classicFont;
-                font-size: 12px;
-                line-height: 20px;
-                color: rgba(50, 51, 70, 0.5);
-                font-weight: 500;
-                display: inline-block;
-                margin-bottom: 5px;
-                margin-left: 5px;
-                width: 65px;
-              }
-            }
+          .card-title{
+            position: absolute;
+            color: whitesmoke;
+            top: 20px;
+            left: 15px;
+            text-align: center;
+            font-family: $classicFont;
+            font-size: 20px;
+            font-weight: 900;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 20px;
+          }
+          .product-desc{
+            position: absolute;
+            color: whitesmoke;
+            top: 55px;
+            left: 15px;
+            text-align: center;
+            font-family: $classicFont;
+            font-size: 17px;
+            font-weight: 750;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 20px;
+          }
+          .product-price{
+            position: absolute;
+            border: 1px solid $sub-title;
+            background-color: rgba(25,25,50, 0.2);
+            color: $sub-title;
+            width: 120px;
+            height: 30px;
+            top: 128px;
+            left: 15px;
+            text-align: center;
+            font-family: $classicFont;
+            font-size: 17px;
+            font-weight: 750;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 32px;
+          }
+          .get-product{
+            position: absolute;
+            width: 120px;
+            height: 30px;
+            top: 129px;
+            right: 25px;
           }
         }
       }

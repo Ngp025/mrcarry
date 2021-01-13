@@ -16,6 +16,7 @@ switch (location.href) {
 
 // Main Components
 const Home = lazy(() => import('./components/main/home'));
+const adminPanel = lazy(() => import('./components/main/adminPanel'));
 // Team Mail Register
 //import CiudadEsports from './components/customers/ciudadesports/ciudadesports';
 // LEGAL IMPORTS
@@ -61,6 +62,7 @@ const Mision_HH = () => (
         <Route path='/terms-and-politics' component={TermsAndPolitics} exact />
         {/* Customers Components */}
         <Route path='/' component={Home} exact />
+        <Route path='/admin' component={adminPanel} exact />
       </Switch>
     </Suspense>
   </HashRouter>

@@ -2,6 +2,7 @@ const { json } = require('express');
 const express = require('express');
 const users = express.Router();
 const User = require('../models/users/users');
+const Products = require('../models/users/products')
 
 
 // - - - - -  GET
@@ -15,6 +16,8 @@ users.get('/mclist', async (req, res) =>{
     })
     res.json(mcList.sort())
   })
+
+
 
 // - - - - -  POST
 /*
@@ -105,5 +108,6 @@ users.post('/betaregister/',
     .then(()=>res.json("saved"))
   },
 );
+
 
 module.exports = users;

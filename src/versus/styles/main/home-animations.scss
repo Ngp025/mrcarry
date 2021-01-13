@@ -23,6 +23,32 @@
   animation-name: opacity;
 }
 
+// -------------------------- DELAY OPACITY ---------- //
+
+.animatedOD {
+  animation-delay: 0.75s;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes opacity-d {
+  0% {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.opacity-d {
+  -webkit-animation-name: opacity-d;
+  animation-name: opacity-d;
+}
+
 // Return Button Animation
 
 .delay {
